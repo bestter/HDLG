@@ -11,6 +11,7 @@ using System.Globalization;
 using System.Threading;
 using HDLG.Objects;
 using HDLG.Business;
+using System.IO;
 
 namespace HDLG.WindowsForms
 {
@@ -49,8 +50,20 @@ namespace HDLG.WindowsForms
         {
             if (!string.IsNullOrEmpty(folderBrowserDialogInput.SelectedPath))
             {
-                Directory directory = DirectoryBusiness.GetDirectoryInformation(folderBrowserDialogInput.SelectedPath);
+                //Get data
+                HDLG.Objects.Directory directory = DirectoryBusiness.GetDirectoryInformation(folderBrowserDialogInput.SelectedPath);
 
+                string directoryPath = AppDomain.CurrentDomain.BaseDirectory;
+
+                //Save data
+                if (radioButtonHTML.Checked)
+                {
+                    DirectoryBusiness.SaveToHtml(directory, Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".html"));
+                }
+                else if (radioButtonXML.Checked)
+                {
+                    DirectoryBusiness.SaveToXML(directory, Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".xml"));
+                }
             }
         }
     }

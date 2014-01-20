@@ -10,7 +10,7 @@ namespace HDLG.Objects
     /// <summary>
     /// Directory
     /// </summary>
-    public class Directory
+    public class Directory : IComparable
     {
         /// <summary>
         /// DirectoryInfo object about this directory
@@ -20,12 +20,17 @@ namespace HDLG.Objects
         /// <summary>
         /// Files
         /// </summary>
-        public FileCollection Files { get; private set; }
+        public FileCollection Files { get; set; }
+
+        /// <summary>
+        /// SubDirectories
+        /// </summary>
+        public DirectoryCollection SubDirectories { get; set; }
 
         /// <summary>
         /// Create a new Directory
         /// </summary>
-        /// <param name="directoryInfo"></param>
+        /// <param name="directoryInfo">Directory</param>
         public Directory(DirectoryInfo directoryInfo)
         {
             if (directoryInfo == null)
@@ -34,19 +39,76 @@ namespace HDLG.Objects
             }
 
             DirectoryInformation = directoryInfo;
+        }
 
-            //Get files
-            System.IO.FileInfo[] filesInfos = DirectoryInformation.GetFiles();
-            Files = new FileCollection();
-            //Get properties
-            foreach (FileInfo fileInfo in filesInfos)
+        /// <summary>
+        /// Create a new Directory
+        /// </summary>
+        /// <param name="directoryInfo">Directory</param>
+        /// <param name="fileCollection">FileCollection</param>
+        /// <param name="subDirectoryCollection">SubDirectoryCollection</param>
+        public Directory(DirectoryInfo directoryInfo, FileCollection fileCollection, DirectoryCollection subDirectoryCollection)
+        {
+            if (directoryInfo == null)
             {
-                Files.Add(new File(fileInfo));
+                throw new ArgumentNullException("directoryInfo");
             }
-            
-            //Sort
-            Files.Sort();
 
+            DirectoryInformation = directoryInfo;
+            Files = fileCollection;
+            SubDirectories = subDirectoryCollection;
+        }
+
+        /// <summary>
+        /// CompareTo
+        /// </summary>
+        /// <param name="obj">Other object</param>
+        /// <returns>CompareValue</returns>
+        public int CompareTo(object obj)
+        {
+            int compareValue = 0;
+
+            if (obj == null)
+            {
+                compareValue = -1;
+            }
+            else
+            {
+                if (obj is Directory)
+                {
+                    Directory directory = (Directory)obj;
+                    return this.CompareTo(directory);
+                }
+                else
+                {
+                    compareValue = -1;
+                }
+            }
+
+
+            return compareValue;
+        }
+
+        /// <summary>
+        /// CompareTo
+        /// </summary>
+        /// <param name="other">Other directory</param>
+        /// <returns>CompareValue</returns>
+        public int CompareTo(Directory other)
+        {
+            int compareValue = 0;
+
+
+            if (other == null)
+            {
+                compareValue = -1;
+            }
+            else
+            {
+                this.DirectoryInformation.FullName.CompareTo(other.DirectoryInformation.FullName);
+            }
+
+            return compareValue;
         }
     }
 }

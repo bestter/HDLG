@@ -19,7 +19,7 @@ namespace HDLG.WindowsForms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-CA");
 
             Application.Run(new MainForm());
         }
