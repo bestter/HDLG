@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonChooseSourceDirectory = new System.Windows.Forms.Button();
             this.labelDirectoryInput = new System.Windows.Forms.Label();
@@ -35,9 +36,11 @@
             this.buttonCreateFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxFileType = new System.Windows.Forms.GroupBox();
-            this.radioButtonHTML = new System.Windows.Forms.RadioButton();
             this.radioButtonXML = new System.Windows.Forms.RadioButton();
+            this.radioButtonHTML = new System.Windows.Forms.RadioButton();
+            this.mainFormErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBoxFileType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonChooseSourceDirectory
@@ -73,6 +76,13 @@
             this.groupBoxFileType.Name = "groupBoxFileType";
             this.groupBoxFileType.TabStop = false;
             // 
+            // radioButtonXML
+            // 
+            resources.ApplyResources(this.radioButtonXML, "radioButtonXML");
+            this.radioButtonXML.Name = "radioButtonXML";
+            this.radioButtonXML.TabStop = true;
+            this.radioButtonXML.UseVisualStyleBackColor = true;
+            // 
             // radioButtonHTML
             // 
             resources.ApplyResources(this.radioButtonHTML, "radioButtonHTML");
@@ -80,12 +90,9 @@
             this.radioButtonHTML.TabStop = true;
             this.radioButtonHTML.UseVisualStyleBackColor = true;
             // 
-            // radioButtonXML
+            // mainFormErrorProvider
             // 
-            resources.ApplyResources(this.radioButtonXML, "radioButtonXML");
-            this.radioButtonXML.Name = "radioButtonXML";
-            this.radioButtonXML.TabStop = true;
-            this.radioButtonXML.UseVisualStyleBackColor = true;
+            this.mainFormErrorProvider.ContainerControl = this;
             // 
             // MainForm
             // 
@@ -99,6 +106,7 @@
             this.Name = "MainForm";
             this.groupBoxFileType.ResumeLayout(false);
             this.groupBoxFileType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainFormErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +122,7 @@
         private System.Windows.Forms.GroupBox groupBoxFileType;
         private System.Windows.Forms.RadioButton radioButtonHTML;
         private System.Windows.Forms.RadioButton radioButtonXML;
+        private System.Windows.Forms.ErrorProvider mainFormErrorProvider;
     }
 }
 

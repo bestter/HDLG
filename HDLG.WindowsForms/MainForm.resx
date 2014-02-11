@@ -227,6 +227,25 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="radioButtonXML.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="radioButtonXML.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="radioButtonXML.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 43</value>
+  </data>
+  <data name="radioButtonXML.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 17</value>
+  </data>
+  <data name="radioButtonXML.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="radioButtonXML.Text" xml:space="preserve">
+    <value>XML</value>
+  </data>
   <data name="&gt;&gt;radioButtonXML.Name" xml:space="preserve">
     <value>radioButtonXML</value>
   </data>
@@ -238,6 +257,21 @@
   </data>
   <data name="&gt;&gt;radioButtonXML.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="radioButtonHTML.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButtonHTML.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 20</value>
+  </data>
+  <data name="radioButtonHTML.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 17</value>
+  </data>
+  <data name="radioButtonHTML.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="radioButtonHTML.Text" xml:space="preserve">
+    <value>HTML</value>
   </data>
   <data name="&gt;&gt;radioButtonHTML.Name" xml:space="preserve">
     <value>radioButtonHTML</value>
@@ -278,64 +312,9 @@
   <data name="&gt;&gt;groupBoxFileType.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="radioButtonHTML.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioButtonHTML.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 20</value>
-  </data>
-  <data name="radioButtonHTML.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 17</value>
-  </data>
-  <data name="radioButtonHTML.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="radioButtonHTML.Text" xml:space="preserve">
-    <value>HTML</value>
-  </data>
-  <data name="&gt;&gt;radioButtonHTML.Name" xml:space="preserve">
-    <value>radioButtonHTML</value>
-  </data>
-  <data name="&gt;&gt;radioButtonHTML.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonHTML.Parent" xml:space="preserve">
-    <value>groupBoxFileType</value>
-  </data>
-  <data name="&gt;&gt;radioButtonHTML.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="radioButtonXML.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="radioButtonXML.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="radioButtonXML.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 43</value>
-  </data>
-  <data name="radioButtonXML.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 17</value>
-  </data>
-  <data name="radioButtonXML.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="radioButtonXML.Text" xml:space="preserve">
-    <value>XML</value>
-  </data>
-  <data name="&gt;&gt;radioButtonXML.Name" xml:space="preserve">
-    <value>radioButtonXML</value>
-  </data>
-  <data name="&gt;&gt;radioButtonXML.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;radioButtonXML.Parent" xml:space="preserve">
-    <value>groupBoxFileType</value>
-  </data>
-  <data name="&gt;&gt;radioButtonXML.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
+  <metadata name="mainFormErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>224, 18</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -353,6 +332,12 @@
   </data>
   <data name="&gt;&gt;folderBrowserDialogInput.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mainFormErrorProvider.Name" xml:space="preserve">
+    <value>mainFormErrorProvider</value>
+  </data>
+  <data name="&gt;&gt;mainFormErrorProvider.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ErrorProvider, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

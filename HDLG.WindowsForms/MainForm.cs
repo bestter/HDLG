@@ -48,6 +48,8 @@ namespace HDLG.WindowsForms
         /// <param name="e"></param>
         private void buttonCreateFile_Click(object sender, EventArgs e)
         {
+            mainFormErrorProvider.Clear();
+
             if (!string.IsNullOrEmpty(folderBrowserDialogInput.SelectedPath))
             {
                 //Get data
@@ -64,6 +66,14 @@ namespace HDLG.WindowsForms
                 {
                     DirectoryBusiness.SaveToXML(directory, Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".xml"));
                 }
+                else
+                {
+                    mainFormErrorProvider.SetError(groupBoxFileType, "Must select type of file");
+                }
+            }
+            else
+            {
+                mainFormErrorProvider.SetError(buttonChooseSourceDirectory, "Must select source directory");
             }
         }
     }
