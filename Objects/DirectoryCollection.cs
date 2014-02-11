@@ -22,6 +22,12 @@ namespace HDLG.Objects
         public DirectoryCollection(List<Directory> list) : base(list) { }
 
         /// <summary>
+        /// Create an DirectoryCollection using provided directories
+        /// </summary>
+        /// <param name="list"></param>
+        public DirectoryCollection(IEnumerable<Directory> list) : base(list.ToList()) { }
+
+        /// <summary>
         /// Sort
         /// </summary>
         public void Sort() { ((List<Directory>)Items).Sort(); }

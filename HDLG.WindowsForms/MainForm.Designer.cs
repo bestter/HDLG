@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonChooseSourceDirectory = new System.Windows.Forms.Button();
-            this.labelDirectoryInput = new System.Windows.Forms.Label();
             this.folderBrowserDialogInput = new System.Windows.Forms.FolderBrowserDialog();
             this.buttonCreateFile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@
             this.radioButtonXML = new System.Windows.Forms.RadioButton();
             this.radioButtonHTML = new System.Windows.Forms.RadioButton();
             this.mainFormErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelDirectoryInput = new System.Windows.Forms.Label();
             this.groupBoxFileType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -49,11 +49,6 @@
             this.buttonChooseSourceDirectory.Name = "buttonChooseSourceDirectory";
             this.buttonChooseSourceDirectory.UseVisualStyleBackColor = true;
             this.buttonChooseSourceDirectory.Click += new System.EventHandler(this.buttonChooseSourceDirectory_Click);
-            // 
-            // labelDirectoryInput
-            // 
-            resources.ApplyResources(this.labelDirectoryInput, "labelDirectoryInput");
-            this.labelDirectoryInput.Name = "labelDirectoryInput";
             // 
             // buttonCreateFile
             // 
@@ -94,6 +89,11 @@
             // 
             this.mainFormErrorProvider.ContainerControl = this;
             // 
+            // labelDirectoryInput
+            // 
+            resources.ApplyResources(this.labelDirectoryInput, "labelDirectoryInput");
+            this.labelDirectoryInput.Name = "labelDirectoryInput";
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -115,7 +115,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonChooseSourceDirectory;
-        private System.Windows.Forms.Label labelDirectoryInput;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialogInput;
         private System.Windows.Forms.Button buttonCreateFile;
         private System.Windows.Forms.Label label1;
@@ -123,6 +122,7 @@
         private System.Windows.Forms.RadioButton radioButtonHTML;
         private System.Windows.Forms.RadioButton radioButtonXML;
         private System.Windows.Forms.ErrorProvider mainFormErrorProvider;
+        private System.Windows.Forms.Label labelDirectoryInput;
     }
 }
 

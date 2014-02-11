@@ -22,6 +22,12 @@ namespace HDLG.Objects
         public FileCollection(List<File> list) : base(list) {}
 
         /// <summary>
+        /// Create an FileCollection using provided files
+        /// </summary>
+        /// <param name="list"></param>
+        public FileCollection(IEnumerable<File> list) : base(list.ToList()) { }
+
+        /// <summary>
         /// Sort
         /// </summary>
         public void Sort() { ((List<File>)Items).Sort(); }

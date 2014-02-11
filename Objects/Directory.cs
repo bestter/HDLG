@@ -10,7 +10,7 @@ namespace HDLG.Objects
     /// <summary>
     /// Directory
     /// </summary>
-    public class Directory : IComparable
+    public class Directory : IComparable, IEquatable<Directory>
     {
         /// <summary>
         /// DirectoryInfo object about this directory
@@ -57,6 +57,51 @@ namespace HDLG.Objects
             DirectoryInformation = directoryInfo;
             Files = fileCollection;
             SubDirectories = subDirectoryCollection;
+        }
+
+        public override string ToString()
+        {
+            return DirectoryInformation.FullName;            
+        }
+
+        public override int GetHashCode()
+        {
+            return DirectoryInformation.GetHashCode();
+        }
+
+        /// <summary>
+        /// Is obj is equal to current Directory?
+        /// </summary>
+        /// <param name="obj">object to compare</param>
+        /// <returns>Is equal?</returns>
+        public override bool Equals(object obj)
+        {
+            bool isEqual = false;
+
+            if (obj != null && obj is Directory)
+            {
+                Directory other = (Directory)obj;
+
+            }            
+
+            return isEqual;
+        }
+
+        /// <summary>
+        /// Is other is equal to current Directory?
+        /// </summary>
+        /// <param name="other">Directory to compare</param>
+        /// <returns>Is equal?</returns>
+        public bool Equals(Directory other)
+        {
+            bool isEqual = false;
+
+            if (other != null)
+            {
+                isEqual = this.DirectoryInformation.Equals(other.DirectoryInformation);
+            }
+
+            return isEqual;
         }
 
         /// <summary>

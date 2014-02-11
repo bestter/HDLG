@@ -17,11 +17,13 @@ namespace HDLG.Objects
         /// </summary>
         public FileInfo FileInformation { get; private set; }
 
+        public PropertyCollection PropertyCollection { get; private set; }
+
         /// <summary>
         /// Create a new File object
         /// </summary>
         /// <param name="fileInformation">fileInformation</param>
-        public File(FileInfo fileInformation)
+        public File(FileInfo fileInformation, IEnumerable<Property> properties)
         {
             if (fileInformation == null)
             {
@@ -29,6 +31,7 @@ namespace HDLG.Objects
             }
 
             FileInformation = fileInformation;
+            PropertyCollection = new Objects.PropertyCollection(properties);
             Init();
         }
 
@@ -36,7 +39,7 @@ namespace HDLG.Objects
         /// Create a new File object
         /// </summary>
         /// <param name="filePath">File</param>
-        public File(string filePath)
+        public File(string filePath, IEnumerable<Property> properties)
         {
             if (string.IsNullOrEmpty(filePath))
             {
@@ -44,6 +47,7 @@ namespace HDLG.Objects
             }
 
             FileInformation = new FileInfo(filePath);
+            PropertyCollection = new Objects.PropertyCollection(properties);
             Init();
         }
 
@@ -57,7 +61,50 @@ namespace HDLG.Objects
                 throw new FileNotFoundException(string.Format("File {0} not found", FileInformation.FullName), FileInformation.FullName);
             }
 
-            //Set properties
+        }
+
+        public override string ToString()
+        {
+            return FileInformation.FullName;
+        }
+
+        public override int GetHashCode()
+        {
+            return FileInformation.GetHashCode();
+        }
+
+        /// <summary>
+        /// Is obj is equal to current file
+        /// </summary>
+        /// <param name="obj">Object to compare</param>
+        /// <returns>Is equal?</returns>
+        public override bool Equals(object obj)
+        {
+            bool isEqual = false;
+
+            if (obj != null && obj is File)
+            {
+
+            }
+
+            return isEqual;
+        }
+
+        /// <summary>
+        /// Is file is equal to current file
+        /// </summary>
+        /// <param name="file">File to compare</param>
+        /// <returns>Is equal?</returns>
+        public bool Equals(File file)
+        {
+            bool isEqual = false;
+
+            if (file != null)
+            {
+                isEqual = file.FileInformation.Equals(this.FileInformation);
+            }
+
+            return isEqual;
         }
 
         /// <summary>
