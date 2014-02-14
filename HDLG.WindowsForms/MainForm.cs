@@ -50,6 +50,8 @@ namespace HDLG.WindowsForms
         {
             mainFormErrorProvider.Clear();
 
+            LinkLabelFile.Visible = false;
+
             if (!string.IsNullOrEmpty(folderBrowserDialogInput.SelectedPath))
             {
                 //Get data
@@ -60,11 +62,19 @@ namespace HDLG.WindowsForms
                 //Save data
                 if (radioButtonHTML.Checked)
                 {
-                    DirectoryBusiness.SaveToHtml(directory, Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".html"));
+                    string filePath = Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".html");
+                    DirectoryBusiness.SaveToHtml(directory, filePath);
+
+                    LinkLabelFile.Text = filePath;
+                    LinkLabelFile.Visible = true;
                 }
                 else if (radioButtonXML.Checked)
                 {
-                    DirectoryBusiness.SaveToXML(directory, Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".xml"));
+                    string filePath = Path.Combine(directoryPath, directory.DirectoryInformation.Name + ".xml");
+                    DirectoryBusiness.SaveToXML(directory, filePath);
+
+                    LinkLabelFile.Text = filePath;
+                    LinkLabelFile.Visible = true;
                 }
                 else
                 {
@@ -75,6 +85,19 @@ namespace HDLG.WindowsForms
             {
                 mainFormErrorProvider.SetError(buttonChooseSourceDirectory, "Must select source directory");
             }
+        }
+
+        /// <summary>
+        /// Open file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LinkLabelFile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LinkLabel LinkLabelFile = (LinkLabel)sender;
+
+            System.Diagnostics.Process.Start(LinkLabelFile.Text);
+
         }
     }
 }

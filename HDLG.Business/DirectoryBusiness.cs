@@ -66,10 +66,13 @@ namespace HDLG.Business
 			//Get properties
 			foreach (FileInfo fileInfo in filesInfos)
 			{
+				if (fileInfo != null)
+				{
+					//Get properties
 
-
-				//Add file
-				Files.Add(new Objects.File(fileInfo, new Property[1]));
+					//Add file
+					Files.Add(new Objects.File(fileInfo, new Property[1]));
+				}
 			}
 			//Sort
 			Files.Sort();
@@ -87,8 +90,10 @@ namespace HDLG.Business
 			DirectoryCollection Directories = new DirectoryCollection();
 			foreach (DirectoryInfo di in directoryInfos)
 			{
-				HDLG.Objects.Directory dir = DirectoryBusiness.GetDirectoryInformation(di);                
-				Directories.Add(dir);
+				if (di != null)
+				{
+					Directories.Add(DirectoryBusiness.GetDirectoryInformation(di));
+				}				
 			}
 			//Sort
 			Directories.Sort();
@@ -116,9 +121,11 @@ namespace HDLG.Business
 			StringBuilder strb = new StringBuilder();
 
 			strb.AppendLine("\t<div>");
+			strb.AppendLine("\t\t<ul>");
 
-			strb.AppendLine(WriteDirectoryToHTML(directory, 1));
+			strb.AppendLine(WriteDirectoryToHTML(directory, 0));
 
+			strb.AppendLine("\t\t</ul>");
 			strb.AppendLine("\t</div>");
 
 			//Replace...
@@ -146,38 +153,46 @@ namespace HDLG.Business
 		{
 			StringBuilder strb = new StringBuilder();
 
-			//Safety...
-			if (deepCounter.Equals(0))
-			{
-				deepCounter = 1;
-			}
 
-			string tabs = new String('\t', deepCounter);
-			string internalTabs = new String('\t', deepCounter+1);
+			int deepCounterToUse = deepCounter + 1;
 
+			string tabs = new String('\t', deepCounterToUse);
+			string internalTabs = new String('\t', deepCounterToUse + 1);
+
+			strb.AppendLine(internalTabs + "<li>");
 			strb.AppendLine(internalTabs + "<div class=\"directory\">");
 
 			
 			strb.AppendLine(internalTabs + "<h2>" + directory.DirectoryInformation.Name + "</h2>");
 
+			strb.AppendLine(internalTabs + "<ul>");
+
 			//Files
 			strb.AppendLine(internalTabs + "<h3>Files</h3>");
 
 			//Write file
+			strb.AppendLine(internalTabs + "<li>");
+
+			strb.AppendLine(internalTabs + "<ol>");
 			foreach (HDLG.Objects.File file in directory.Files)
 			{
-				strb.AppendLine(WriteFiletoHTML(file, deepCounter+2));
+				strb.AppendLine(WriteFiletoHTML(file, deepCounterToUse + 2));
 			}
+			strb.AppendLine(internalTabs + "</ol>");
+			strb.AppendLine(internalTabs + "</li>");
 
 			//Sub directories
 			strb.AppendLine(internalTabs + "<h3>Sub-Directories</h3>");
 			//Write file
 			foreach (HDLG.Objects.Directory subDirectory in directory.SubDirectories)
 			{
-				strb.AppendLine(WriteDirectoryToHTML(subDirectory, (deepCounter+2)));
+				strb.AppendLine(WriteDirectoryToHTML(subDirectory, (deepCounterToUse + 2)));
 			}
 
+			strb.AppendLine(internalTabs + "</ul>");
+
 			strb.AppendLine(tabs + "</div>");
+			strb.AppendLine(internalTabs + "</li>");
 
 			return strb.ToString(); // do not trim
 		}
@@ -194,6 +209,7 @@ namespace HDLG.Business
 
 			StringBuilder strb = new StringBuilder();
 
+			strb.AppendLine(tabs + "<li>");
 			strb.AppendLine(tabs + "<div class=\"file\">");
 
 			strb.AppendLine(tabs + "<h4>" + file.FileInformation.Name + "</h4>");
@@ -210,6 +226,7 @@ namespace HDLG.Business
 
 
 			strb.AppendLine(tabs + "</div>");
+			strb.AppendLine(tabs + "</li>");
 
 			return strb.ToString(); //do not trim
 		}

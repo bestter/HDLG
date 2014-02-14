@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonChooseSourceDirectory.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <metadata name="folderBrowserDialogInput.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>33, 18</value>
@@ -171,7 +171,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonCreateFile.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -201,6 +201,57 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;radioButtonXML.Name" xml:space="preserve">
+    <value>radioButtonXML</value>
+  </data>
+  <data name="&gt;&gt;radioButtonXML.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonXML.Parent" xml:space="preserve">
+    <value>groupBoxFileType</value>
+  </data>
+  <data name="&gt;&gt;radioButtonXML.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;radioButtonHTML.Name" xml:space="preserve">
+    <value>radioButtonHTML</value>
+  </data>
+  <data name="&gt;&gt;radioButtonHTML.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButtonHTML.Parent" xml:space="preserve">
+    <value>groupBoxFileType</value>
+  </data>
+  <data name="&gt;&gt;radioButtonHTML.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="groupBoxFileType.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="groupBoxFileType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 78</value>
+  </data>
+  <data name="groupBoxFileType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 73</value>
+  </data>
+  <data name="groupBoxFileType.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="groupBoxFileType.Text" xml:space="preserve">
+    <value>File type</value>
+  </data>
+  <data name="&gt;&gt;groupBoxFileType.Name" xml:space="preserve">
+    <value>groupBoxFileType</value>
+  </data>
+  <data name="&gt;&gt;groupBoxFileType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxFileType.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;groupBoxFileType.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="radioButtonXML.AutoSize" type="System.Boolean, mscorlib">
@@ -261,33 +312,6 @@
   <data name="&gt;&gt;radioButtonHTML.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="groupBoxFileType.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="groupBoxFileType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 78</value>
-  </data>
-  <data name="groupBoxFileType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 73</value>
-  </data>
-  <data name="groupBoxFileType.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="groupBoxFileType.Text" xml:space="preserve">
-    <value>File type</value>
-  </data>
-  <data name="&gt;&gt;groupBoxFileType.Name" xml:space="preserve">
-    <value>groupBoxFileType</value>
-  </data>
-  <data name="&gt;&gt;groupBoxFileType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBoxFileType.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBoxFileType.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="mainFormErrorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>224, 18</value>
   </metadata>
@@ -298,7 +322,37 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>440, 401</value>
+    <value>801, 239</value>
+  </data>
+  <data name="LinkLabelFile.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LinkLabelFile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 166</value>
+  </data>
+  <data name="LinkLabelFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="LinkLabelFile.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LinkLabelFile.Text" xml:space="preserve">
+    <value>LinkLabelFile</value>
+  </data>
+  <data name="LinkLabelFile.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;LinkLabelFile.Name" xml:space="preserve">
+    <value>LinkLabelFile</value>
+  </data>
+  <data name="&gt;&gt;LinkLabelFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LinkLabelFile.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LinkLabelFile.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="labelDirectoryInput.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -331,7 +385,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelDirectoryInput.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>HTML Directory List Generator</value>

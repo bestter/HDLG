@@ -39,6 +39,7 @@
             this.radioButtonHTML = new System.Windows.Forms.RadioButton();
             this.mainFormErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelDirectoryInput = new System.Windows.Forms.Label();
+            this.LinkLabelFile = new System.Windows.Forms.LinkLabel();
             this.groupBoxFileType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainFormErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -94,10 +95,18 @@
             resources.ApplyResources(this.labelDirectoryInput, "labelDirectoryInput");
             this.labelDirectoryInput.Name = "labelDirectoryInput";
             // 
+            // LinkLabelFile
+            // 
+            resources.ApplyResources(this.LinkLabelFile, "LinkLabelFile");
+            this.LinkLabelFile.Name = "LinkLabelFile";
+            this.LinkLabelFile.TabStop = true;
+            this.LinkLabelFile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabelFile_LinkClicked);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.LinkLabelFile);
             this.Controls.Add(this.groupBoxFileType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCreateFile);
@@ -123,6 +132,7 @@
         private System.Windows.Forms.RadioButton radioButtonXML;
         private System.Windows.Forms.ErrorProvider mainFormErrorProvider;
         private System.Windows.Forms.Label labelDirectoryInput;
+        private System.Windows.Forms.LinkLabel LinkLabelFile;
     }
 }
 
