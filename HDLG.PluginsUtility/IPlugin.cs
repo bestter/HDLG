@@ -26,6 +26,12 @@ namespace HDLG.SharedInterface
     public interface IPlugin
     {
         /// <summary>
+        /// Get list of supported extensions
+        /// </summary>
+        /// <returns></returns>
+        string[] GetSupportedExtensions();
+
+        /// <summary>
         /// Get list of properties returned by this plugin
         /// </summary>
         /// <param name="file">File</param>

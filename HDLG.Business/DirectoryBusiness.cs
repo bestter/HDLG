@@ -87,9 +87,19 @@ namespace HDLG.Business
 				if (fileInfo != null)
 				{
 					//Get properties
+					PropertyCollection properties = new PropertyCollection();
+
+					//Get list of plugins
+
+					IPlugin jpegplugin = (IPlugin)Activator.CreateInstance(Type.GetType("HDLG.ImagesPlugin.JpegPlugin, HDLG.ImagesPlugin", true));
+
+					if (jpegplugin.GetSupportedExtensions().Contains(fileInfo.Extension))
+					{
+						properties = jpegplugin.GetProperties(fileInfo);
+					}
 
 					//Add file
-					Files.Add(new Objects.File(fileInfo, new Property[1]));
+					Files.Add(new Objects.File(fileInfo, properties));
 				}
 			}
 			//Sort

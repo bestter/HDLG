@@ -53,6 +53,24 @@ namespace HDLG.SharedInterface
         /// Sort
         /// </summary>
         public void Sort(System.Comparison<Property> comparer) { ((List<Property>)Items).Sort(comparer); }
+                
+        /// <summary>
+        /// Add a property to the end of the collection
+        /// </summary>
+        /// <param name="nameValue">Name value pair</param>
+        public void Add(KeyValuePair<string, object> nameValue)
+        {
+            base.Add(new Property(nameValue));
+        }
 
+        /// <summary>
+        /// Add a property to the end of the collection
+        /// </summary>
+        /// <param name="name">Name</param>
+        /// <param name="value">Value</param>
+        public void Add(string name, object value)
+        {
+            base.Add(new Property(name, value));
+        }
     }
 }
