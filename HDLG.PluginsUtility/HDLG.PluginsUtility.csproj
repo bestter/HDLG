@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5705B573-E6C8-4A9E-8524-9E81E0FA90BD}</ProjectGuid>
+    <ProjectGuid>{B3AFC6A8-38B0-4BCB-BF9E-A87668E84A5C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HDLG.Business</RootNamespace>
-    <AssemblyName>HDLG.Business</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>HDLG.SharedInterface</RootNamespace>
+    <AssemblyName>HDLG.SharedInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,27 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DirectoryBusiness.cs" />
-    <Compile Include="FileBusiness.cs" />
+    <Compile Include="IPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HDLG.PluginsUtility\HDLG.PluginsUtility.csproj">
-      <Project>{b3afc6a8-38b0-4bcb-bf9e-a87668e84a5c}</Project>
-      <Name>HDLG.PluginsUtility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Objects\HDLG.Objects.csproj">
-      <Project>{08aa5507-0618-489d-859b-fa07f27484d7}</Project>
-      <Name>HDLG.Objects</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Source\hdlgDirectories.html">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Compile Include="Property.cs" />
+    <Compile Include="PropertyCollection.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

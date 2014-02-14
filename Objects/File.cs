@@ -21,6 +21,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HDLG.SharedInterface;
 
 namespace HDLG.Objects
 {
@@ -48,7 +49,7 @@ namespace HDLG.Objects
             }
 
             FileInformation = fileInformation;
-            PropertyCollection = new Objects.PropertyCollection(properties);
+            PropertyCollection = new PropertyCollection(properties);
             Init();
         }
 
@@ -64,7 +65,7 @@ namespace HDLG.Objects
             }
 
             FileInformation = new FileInfo(filePath);
-            PropertyCollection = new Objects.PropertyCollection(properties);
+            PropertyCollection = new PropertyCollection(properties);
             Init();
         }
 

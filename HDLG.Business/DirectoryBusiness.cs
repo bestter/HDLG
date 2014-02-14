@@ -1,18 +1,18 @@
 ﻿/*
-    This file is part of HTML Directory List Generator (HDLG).
+	This file is part of HTML Directory List Generator (HDLG).
 
-    HDLG is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+	HDLG is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
 
-    HDLG is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	HDLG is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
+	You should have received a copy of the GNU General Public License
+	along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System;
@@ -26,6 +26,7 @@ using System.Globalization;
 using System.Xml;
 using System.Xml.Linq;
 using HtmlAgilityPack;
+using HDLG.SharedInterface;
 
 
 namespace HDLG.Business
@@ -233,14 +234,13 @@ namespace HDLG.Business
 
 			strb.AppendLine(tabs + "<h5>Properties</h5>");
 
-			foreach (HDLG.Objects.Property property in file.PropertyCollection)
+			foreach (HDLG.SharedInterface.Property property in file.PropertyCollection)
 			{
 				if (property != null)
 				{
 					strb.AppendLine(tabs + string.Format(CultureInfo.CurrentCulture, property.Name, property.Value.ToString()));
 				}
 			}
-
 
 			strb.AppendLine(tabs + "</div>");
 			strb.AppendLine(tabs + "</li>");
@@ -348,7 +348,7 @@ namespace HDLG.Business
 
 			XElement elementProperties = new XElement("Properties");
 
-			foreach (HDLG.Objects.Property property in file.PropertyCollection)
+			foreach (HDLG.SharedInterface.Property property in file.PropertyCollection)
 			{
 				if (property != null)
 				{

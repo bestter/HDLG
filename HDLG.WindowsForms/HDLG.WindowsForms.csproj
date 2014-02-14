@@ -104,6 +104,10 @@
       <Project>{5705b573-e6c8-4a9e-8524-9e81e0fa90bd}</Project>
       <Name>HDLG.Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HDLG.PluginsUtility\HDLG.PluginsUtility.csproj">
+      <Project>{b3afc6a8-38b0-4bcb-bf9e-a87668e84a5c}</Project>
+      <Name>HDLG.PluginsUtility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Objects\HDLG.Objects.csproj">
       <Project>{08aa5507-0618-489d-859b-fa07f27484d7}</Project>
       <Name>HDLG.Objects</Name>

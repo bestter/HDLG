@@ -21,7 +21,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HDLG.Objects
+namespace HDLG.SharedInterface
 {
     public class Property: IComparable
     {
