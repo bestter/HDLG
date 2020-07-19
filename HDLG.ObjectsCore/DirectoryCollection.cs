@@ -19,37 +19,35 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HDLG.Objects
+namespace HDLG.ObjectsCore
 {
-    public class FileCollection : ICollection<File>
+    public class DirectoryCollection : ICollection<Directory>
     {
-        private List<File> items;
+        private List<Directory> items;
 
         /// <summary>
-        /// Create an empty FileCollection
+        /// Create an empty DirectoryCollection
         /// </summary>
-        public FileCollection() : this(new List<File>()) {}
+        public DirectoryCollection() : this(new List<Directory>()) { }
 
         /// <summary>
-        /// Create an FileCollection using provided files
-        /// </summary>
-        /// <param name="list"></param>
-        public FileCollection(List<File> list)
-        {
-            items = list;
-        }
-
-        /// <summary>
-        /// Create an FileCollection using provided files
+        /// Create an DirectoryCollection using provided directories
         /// </summary>
         /// <param name="list"></param>
-        public FileCollection(IEnumerable<File> list) : this(list.ToList()) { }
+        public DirectoryCollection(List<Directory> list) 
+        { items = new List<Directory>(list); }
 
-        public int Count => items.Count;
+        /// <summary>
+        /// Create an DirectoryCollection using provided directories
+        /// </summary>
+        /// <param name="list"></param>
+        public DirectoryCollection(IEnumerable<Directory> list) : this(list.ToList()) { }
+
+        public int Count => items.Count();
 
         public bool IsReadOnly => false;
 
-        public void Add(File item)
+        public void Add(Directory item)
         {
             items.Add(item);
         }
@@ -59,22 +57,22 @@ namespace HDLG.Objects
             items.Clear();
         }
 
-        public bool Contains(File item)
+        public bool Contains(Directory item)
         {
             return items.Contains(item);
         }
 
-        public void CopyTo(File[] array, int arrayIndex)
+        public void CopyTo(Directory[] array, int arrayIndex)
         {
             items.CopyTo(array, arrayIndex);
         }
 
-        public IEnumerator<File> GetEnumerator()
+        public IEnumerator<Directory> GetEnumerator()
         {
             return items.GetEnumerator();
         }
 
-        public bool Remove(File item)
+        public bool Remove(Directory item)
         {
             return items.Remove(item);
         }
@@ -87,7 +85,7 @@ namespace HDLG.Objects
         /// <summary>
         /// Sort
         /// </summary>
-        public void Sort(System.Comparison<File> comparer) { items.Sort(comparer); }
+        public void Sort(System.Comparison<Directory> comparer) { items.Sort(comparer); }
 
         IEnumerator IEnumerable.GetEnumerator()
         {

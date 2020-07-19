@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLG.WindowsForms", "HDLG.WindowsForms\HDLG.WindowsForms.csproj", "{07163D9D-C4A8-47E8-8F56-7F2977CF995D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Program", "Program", "{32BF1317-C050-471D-8555-6EFBC791F276}"
@@ -16,6 +18,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLG.PluginsUtility", "HDLG.PluginsUtility\HDLG.PluginsUtility.csproj", "{B3AFC6A8-38B0-4BCB-BF9E-A87668E84A5C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLG.ImagesPlugin", "HDLG.ImagesPlugin\HDLG.ImagesPlugin.csproj", "{6E231C9E-EA09-4C93-8940-7BD848105D7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLG.BusinessCore", "HDLG.BusinessCore\HDLG.BusinessCore.csproj", "{659C511E-DDDC-44BB-ACF7-174F033B12E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "License", "License", "{E5643731-CA13-43B3-A038-B2EC5144823E}"
+	ProjectSection(SolutionItems) = preProject
+		COPYING.txt = COPYING.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLG.ObjectsCore", "HDLG.ObjectsCore\HDLG.ObjectsCore.csproj", "{E8EFE0B1-9A8D-49CC-876A-291E8D9BEC54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HDLG.PluginsUtilityCore", "HDLG.PluginsUtilityCore\HDLG.PluginsUtilityCore.csproj", "{05B4B02E-CF26-44F1-B473-CAF318E32F52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +56,18 @@ Global
 		{6E231C9E-EA09-4C93-8940-7BD848105D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E231C9E-EA09-4C93-8940-7BD848105D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E231C9E-EA09-4C93-8940-7BD848105D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{659C511E-DDDC-44BB-ACF7-174F033B12E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659C511E-DDDC-44BB-ACF7-174F033B12E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659C511E-DDDC-44BB-ACF7-174F033B12E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659C511E-DDDC-44BB-ACF7-174F033B12E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8EFE0B1-9A8D-49CC-876A-291E8D9BEC54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8EFE0B1-9A8D-49CC-876A-291E8D9BEC54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8EFE0B1-9A8D-49CC-876A-291E8D9BEC54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8EFE0B1-9A8D-49CC-876A-291E8D9BEC54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05B4B02E-CF26-44F1-B473-CAF318E32F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05B4B02E-CF26-44F1-B473-CAF318E32F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05B4B02E-CF26-44F1-B473-CAF318E32F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05B4B02E-CF26-44F1-B473-CAF318E32F52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +78,11 @@ Global
 		{5705B573-E6C8-4A9E-8524-9E81E0FA90BD} = {B0F79C5A-5B4A-433A-8721-9176BD4D804F}
 		{B3AFC6A8-38B0-4BCB-BF9E-A87668E84A5C} = {91FD8D70-46CC-4C90-80BF-BB853619FC8A}
 		{6E231C9E-EA09-4C93-8940-7BD848105D7F} = {91FD8D70-46CC-4C90-80BF-BB853619FC8A}
+		{659C511E-DDDC-44BB-ACF7-174F033B12E8} = {B0F79C5A-5B4A-433A-8721-9176BD4D804F}
+		{E8EFE0B1-9A8D-49CC-876A-291E8D9BEC54} = {B0F79C5A-5B4A-433A-8721-9176BD4D804F}
+		{05B4B02E-CF26-44F1-B473-CAF318E32F52} = {91FD8D70-46CC-4C90-80BF-BB853619FC8A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC0791B2-E760-4C1A-B937-567B6C70132D}
 	EndGlobalSection
 EndGlobal

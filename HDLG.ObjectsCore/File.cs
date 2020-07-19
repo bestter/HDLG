@@ -15,20 +15,20 @@
     along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using HDLG.SharedInterface;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HDLG.SharedInterface;
 
-namespace HDLG.Objects
+namespace HDLG.ObjectsCore
 {
     /// <summary>
     /// File
     /// </summary>
-    public class File:IComparable
+    public class File : IComparable
     {
         /// <summary>
         /// FileInfo object about this File
@@ -43,7 +43,7 @@ namespace HDLG.Objects
         /// <param name="fileInformation">fileInformation</param>
         public File(FileInfo fileInformation, IEnumerable<Property> properties)
         {
-            FileInformation = fileInformation ?? throw new ArgumentNullException("fileInformation");
+            FileInformation = fileInformation ?? throw new ArgumentNullException(nameof(fileInformation));
             PropertyCollection = new PropertyCollection(properties);
             Init();
         }
@@ -177,7 +177,7 @@ namespace HDLG.Objects
                     {
                         compareValue = 0;
                     }
-                }                
+                }
             }
 
             return compareValue;
