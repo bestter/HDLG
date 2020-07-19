@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using HDLG.SharedInterface;
+﻿using HDLG.SharedInterface;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Globalization;
+using System.Linq;
 
 namespace HDLG.ImagesPlugin
 {
-    public class JpegPlugin: IPlugin
+    public class JpegPlugin : IPlugin
     {
         // <summary>
         /// Get list of supported extensions
@@ -45,12 +42,14 @@ namespace HDLG.ImagesPlugin
                     object value = null;
 
 
-                    switch(propItem.Id)
+                    switch (propItem.Id)
                     {
-                        case 271: name = "Equipment manufacturer"; //Manufacturer
+                        case 271:
+                            name = "Equipment manufacturer"; //Manufacturer
                             value = encoding.GetString(propItem.Value);
                             break;
-                        case 272: name = "Equipment model"; //Model
+                        case 272:
+                            name = "Equipment model"; //Model
                             value = encoding.GetString(propItem.Value);
                             break;
                         case 800:

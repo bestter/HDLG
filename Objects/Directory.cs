@@ -16,10 +16,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace HDLG.Objects
@@ -78,7 +74,7 @@ namespace HDLG.Objects
 
         public override string ToString()
         {
-            return DirectoryInformation.FullName;            
+            return DirectoryInformation.FullName;
         }
 
         public override int GetHashCode()
@@ -99,7 +95,7 @@ namespace HDLG.Objects
             {
                 Directory other = (Directory)obj;
 
-            }            
+            }
 
             return isEqual;
         }

@@ -15,20 +15,17 @@
     along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using HDLG.SharedInterface;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HDLG.SharedInterface;
 
 namespace HDLG.Objects
 {
     /// <summary>
     /// File
     /// </summary>
-    public class File:IComparable
+    public class File : IComparable
     {
         /// <summary>
         /// FileInfo object about this File
@@ -177,7 +174,7 @@ namespace HDLG.Objects
                     {
                         compareValue = 0;
                     }
-                }                
+                }
             }
 
             return compareValue;

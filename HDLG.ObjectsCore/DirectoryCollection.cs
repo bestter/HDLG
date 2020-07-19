@@ -34,7 +34,7 @@ namespace HDLG.ObjectsCore
         /// Create an DirectoryCollection using provided directories
         /// </summary>
         /// <param name="list"></param>
-        public DirectoryCollection(List<Directory> list) 
+        public DirectoryCollection(List<Directory> list)
         { items = new List<Directory>(list); }
 
         /// <summary>

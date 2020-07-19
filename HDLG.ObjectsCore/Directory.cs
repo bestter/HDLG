@@ -16,10 +16,6 @@
 */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace HDLG.ObjectsCore
@@ -134,7 +130,7 @@ namespace HDLG.ObjectsCore
                 if (obj is Directory)
                 {
                     Directory directory = (Directory)obj;
-                    compareValue= this.CompareTo(directory);
+                    compareValue = this.CompareTo(directory);
                 }
                 else
                 {
@@ -152,16 +148,14 @@ namespace HDLG.ObjectsCore
         /// <returns>CompareValue</returns>
         public int CompareTo(Directory other)
         {
-            int compareValue = 0;
-
-
+            int compareValue;
             if (other == null)
             {
                 compareValue = -1;
             }
             else
             {
-                compareValue=this.DirectoryInformation.FullName.CompareTo(other.DirectoryInformation.FullName);
+                compareValue = this.DirectoryInformation.FullName.CompareTo(other.DirectoryInformation.FullName);
             }
 
             return compareValue;

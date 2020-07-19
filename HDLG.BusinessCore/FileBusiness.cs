@@ -15,11 +15,9 @@
 	along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-
 namespace HDLG.BusinessCore
 {
-    public class Class1
+    public class FileBusiness
     {
     }
 }

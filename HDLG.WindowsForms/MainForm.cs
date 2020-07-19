@@ -15,27 +15,17 @@
     along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Globalization;
-using System.Threading;
-using HDLG.Objects;
 using HDLG.Business;
+using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace HDLG.WindowsForms
 {
     public partial class MainForm : Form
     {
         public MainForm()
-        {            
+        {
             //Thread.CurrentThread.CurrentUICulture = new CultureInfo("fr-FR");
             InitializeComponent();
         }
@@ -135,7 +125,7 @@ namespace HDLG.WindowsForms
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBoxHDLG aboutBox = new AboutBoxHDLG();
-            aboutBox.Show(this);            
+            aboutBox.Show(this);
         }
     }
 }

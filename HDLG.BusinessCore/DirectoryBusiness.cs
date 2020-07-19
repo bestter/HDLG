@@ -15,7 +15,7 @@
 	along with HDLG.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using HDLG.Objects;
+using HDLG.ObjectsCore;
 using HDLG.SharedInterface;
 using System;
 using System.Globalization;
@@ -26,16 +26,16 @@ using System.Xml;
 using System.Xml.Linq;
 
 
-namespace HDLG.Business
+namespace HDLG.BusinessCore
 {
     public static class DirectoryBusiness
     {
 
-        public static HDLG.Objects.Directory GetDirectoryInformation(string directoryPath)
+        public static ObjectsCore.Directory GetDirectoryInformation(string directoryPath)
         {
             if (string.IsNullOrEmpty(directoryPath))
             {
-                throw new ArgumentNullException("directoryPath");
+                throw new ArgumentNullException(nameof(directoryPath));
             }
 
             DirectoryInfo directoryInfo = new DirectoryInfo(directoryPath);
@@ -47,11 +47,11 @@ namespace HDLG.Business
         /// Create a new DirectoryBusiness
         /// </summary>
         /// <param name="directoryInfo">Directory to </param>
-        public static HDLG.Objects.Directory GetDirectoryInformation(DirectoryInfo directoryInfo)
+        public static ObjectsCore.Directory GetDirectoryInformation(DirectoryInfo directoryInfo)
         {
             if (directoryInfo == null)
             {
-                throw new ArgumentNullException("directory");
+                throw new ArgumentNullException(nameof(directoryInfo));
             }
 
             return LoadDirectory(directoryInfo);
@@ -60,22 +60,22 @@ namespace HDLG.Business
         /// <summary>
         /// Init directory
         /// </summary>
-        private static Objects.Directory LoadDirectory(DirectoryInfo directoryInfo)
+        private static ObjectsCore.Directory LoadDirectory(DirectoryInfo directoryInfo)
         {
+            if (directoryInfo is null)
+            {
+                throw new ArgumentNullException(nameof(directoryInfo));
+            }
+
             if (!directoryInfo.Exists)
             {
                 throw new DirectoryNotFoundException(string.Format(CultureInfo.InvariantCulture, "Directory {0} do not exist", directoryInfo.FullName));
             }
 
             //Get files
-            System.IO.FileInfo[] filesInfos = new FileInfo[1];
-            try
-            {
-                filesInfos = directoryInfo.GetFiles();
-            }
-            catch
-            {
-            }
+            FileInfo[] filesInfos = new FileInfo[1];
+               filesInfos = directoryInfo.GetFiles();
+
 
             FileCollection Files = new FileCollection();
             //Get properties
@@ -96,7 +96,7 @@ namespace HDLG.Business
                     }
 
                     //Add file
-                    Files.Add(new Objects.File(fileInfo, properties));
+                    Files.Add(new ObjectsCore.File(fileInfo, properties));
                 }
             }
             //Sort
@@ -117,14 +117,14 @@ namespace HDLG.Business
             {
                 if (di != null)
                 {
-                    Directories.Add(DirectoryBusiness.GetDirectoryInformation(di));
+                    Directories.Add(GetDirectoryInformation(di));
                 }
             }
             //Sort
             Directories.Sort();
 
             //Create directory
-            Objects.Directory directory = new Objects.Directory(directoryInfo, Files, Directories);
+            ObjectsCore.Directory directory = new ObjectsCore.Directory(directoryInfo, Files, Directories);
 
             return directory;
         }
@@ -136,7 +136,7 @@ namespace HDLG.Business
         /// </summary>
         /// <param name="directory"></param>
         /// <param name="filePath"></param>
-        public static void SaveToHtml(HDLG.Objects.Directory directory, string filePath)
+        public static void SaveToHtml(ObjectsCore.Directory directory, string filePath)
         {
             string htmlSourceFile = System.IO.File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Source", "hdlgDirectories.html"));
 
@@ -154,7 +154,7 @@ namespace HDLG.Business
             strb.AppendLine("\t</div>");
 
             //Replace...
-            workFile = workFile.Replace("</body>", string.Format(CultureInfo.CurrentCulture, "{0}{1}</body>", strb.ToString().Trim(), System.Environment.NewLine));
+            workFile = workFile.Replace("</body>", string.Format(CultureInfo.CurrentCulture, "{0}{1}</body>", strb.ToString().Trim(), Environment.NewLine));
 
 
             using (FileStream fs = new FileStream(filePath, FileMode.Create))
@@ -174,7 +174,7 @@ namespace HDLG.Business
         /// <param name="directory"></param>
         /// <param name="deepCounter"></param>
         /// <returns></returns>
-        private static string WriteDirectoryToHTML(HDLG.Objects.Directory directory, int deepCounter)
+        private static string WriteDirectoryToHTML(ObjectsCore.Directory directory, int deepCounter)
         {
             StringBuilder strb = new StringBuilder();
 
@@ -199,7 +199,7 @@ namespace HDLG.Business
             strb.AppendLine(internalTabs + "<li>");
 
             strb.AppendLine(internalTabs + "<ol>");
-            foreach (HDLG.Objects.File file in directory.Files)
+            foreach (ObjectsCore.File file in directory.Files)
             {
                 strb.AppendLine(WriteFiletoHTML(file, deepCounterToUse + 2));
             }
@@ -209,7 +209,7 @@ namespace HDLG.Business
             //Sub directories
             strb.AppendLine(internalTabs + "<h3>Sub-Directories</h3>");
             //Write file
-            foreach (HDLG.Objects.Directory subDirectory in directory.SubDirectories)
+            foreach (ObjectsCore.Directory subDirectory in directory.SubDirectories)
             {
                 strb.AppendLine(WriteDirectoryToHTML(subDirectory, (deepCounterToUse + 2)));
             }
@@ -228,7 +228,7 @@ namespace HDLG.Business
         /// <param name="file"></param>
         /// <param name="deepCounter"></param>
         /// <returns></returns>
-        private static string WriteFiletoHTML(HDLG.Objects.File file, int deepCounter)
+        private static string WriteFiletoHTML(ObjectsCore.File file, int deepCounter)
         {
             string tabs = new String('\t', deepCounter);
 
@@ -241,7 +241,7 @@ namespace HDLG.Business
 
             strb.AppendLine(tabs + "<h5>Properties</h5>");
 
-            foreach (HDLG.SharedInterface.Property property in file.PropertyCollection)
+            foreach (Property property in file.PropertyCollection)
             {
                 if (property != null)
                 {
@@ -264,7 +264,7 @@ namespace HDLG.Business
         /// </summary>
         /// <param name="directory"></param>
         /// <param name="filePath"></param>
-        public static void SaveToXML(HDLG.Objects.Directory directory, string filePath)
+        public static void SaveToXML(ObjectsCore.Directory directory, string filePath)
         {
             XDocument document = new XDocument();
 
@@ -276,10 +276,12 @@ namespace HDLG.Business
             document.Add(hdlgElement);
 
             //Set settings
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Encoding = System.Text.Encoding.Unicode;
-            settings.Indent = true;
-            settings.IndentChars = "  ";
+            XmlWriterSettings settings = new XmlWriterSettings
+            {
+                Encoding = Encoding.Unicode,
+                Indent = true,
+                IndentChars = "  "
+            };
 
             //Write data
             using (XmlWriter writer = XmlWriter.Create(filePath, settings))
@@ -294,7 +296,7 @@ namespace HDLG.Business
         /// </summary>
         /// <param name="directory"></param>
         /// <returns></returns>
-        private static XElement WriteDirectoryToXML(HDLG.Objects.Directory directory)
+        private static XElement WriteDirectoryToXML(ObjectsCore.Directory directory)
         {
             XElement elementDirectory = new XElement("Directory");
 
@@ -308,7 +310,7 @@ namespace HDLG.Business
             //Sub directories
             if (directory.SubDirectories.Count > 0)
             {
-                foreach (HDLG.Objects.Directory subDirectory in directory.SubDirectories)
+                foreach (ObjectsCore.Directory subDirectory in directory.SubDirectories)
                 {
                     if (subDirectory != null)
                     {
@@ -323,7 +325,7 @@ namespace HDLG.Business
             //Files
             if (directory.Files.Count > 0)
             {
-                foreach (HDLG.Objects.File file in directory.Files)
+                foreach (ObjectsCore.File file in directory.Files)
                 {
                     if (file != null)
                     {
@@ -344,7 +346,7 @@ namespace HDLG.Business
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>
-        private static XElement WriteFileToXML(HDLG.Objects.File file)
+        private static XElement WriteFileToXML(ObjectsCore.File file)
         {
             XElement elementFile = new XElement("File");
             XAttribute attributeName = new XAttribute("Name", file.FileInformation.Name);
@@ -355,7 +357,7 @@ namespace HDLG.Business
 
             XElement elementProperties = new XElement("Properties");
 
-            foreach (HDLG.SharedInterface.Property property in file.PropertyCollection)
+            foreach (Property property in file.PropertyCollection)
             {
                 if (property != null)
                 {

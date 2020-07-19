@@ -17,13 +17,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HDLG.SharedInterface
 {
-    public class Property: IComparable
+    public class Property : IComparable
     {
         #region Properties
         /// <summary>
@@ -42,7 +39,7 @@ namespace HDLG.SharedInterface
         /// </summary>
         /// <param name="name"></param>
         /// <param name="value"></param>
-        public Property(string name, object value)        
+        public Property(string name, object value)
         {
             if (string.IsNullOrEmpty(name))
             {

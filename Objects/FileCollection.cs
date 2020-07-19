@@ -28,7 +28,7 @@ namespace HDLG.Objects
         /// <summary>
         /// Create an empty FileCollection
         /// </summary>
-        public FileCollection() : this(new List<File>()) {}
+        public FileCollection() : this(new List<File>()) { }
 
         /// <summary>
         /// Create an FileCollection using provided files
